@@ -1,0 +1,2780 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/panva/node-oidc-provider">oidc-provider (v1.15.6)</a>
+</h1>
+<h4>OpenID Provider (OP) implementation for Node.js OpenID Connect servers.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oidc-provider">module oidc-provider</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.oidc-provider">
+            function <span class="apidocSignatureSpan"></span>oidc-provider
+            <span class="apidocSignatureSpan">(issuer, setup)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.AdapterTest">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>AdapterTest
+            <span class="apidocSignatureSpan">(provider, accountIdFactory, clientIdFactory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.asKey">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>asKey
+            <span class="apidocSignatureSpan">(key, form, extras)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.asKeyStore">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>asKeyStore
+            <span class="apidocSignatureSpan">(ks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.createKeyStore">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>createKeyStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>provider
+            <span class="apidocSignatureSpan">(issuer, setup)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.</span>errors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.</span>index</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oidc-provider.defaults">module oidc-provider.defaults</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.adapter">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>adapter
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.findById">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>findById
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.interactionCheck">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>interactionCheck
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.interactionUrl">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>interactionUrl
+            <span class="apidocSignatureSpan">(interaction)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.logoutSource">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>logoutSource
+            <span class="apidocSignatureSpan">(form)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.renderError">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>renderError
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.defaults.uniqueness">
+            function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>uniqueness
+            <span class="apidocSignatureSpan">(jti, expiresAt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>acrValues</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>claims</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>cookies</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>discovery</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>extraParams</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>features</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>prompts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>responseTypes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>routes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>scopes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>subjectTypes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>tokenEndpointAuthMethods</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>ttl</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oidc-provider.defaults.</span>unsupported</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">oidc-provider.defaults.</span>pairwiseSalt</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">oidc-provider.defaults.</span>postLogoutRedirectUri</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">oidc-provider.defaults.</span>refreshTokenRotation</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oidc-provider.errors">module oidc-provider.errors</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.InvalidClientError">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidClientError
+            <span class="apidocSignatureSpan">(detail)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.InvalidClientMetadata">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidClientMetadata
+            <span class="apidocSignatureSpan">(description)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.InvalidGrantError">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidGrantError
+            <span class="apidocSignatureSpan">(detail)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.InvalidRequestError">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidRequestError
+            <span class="apidocSignatureSpan">(description, code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.InvalidTokenError">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidTokenError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.errors.RedirectUriMismatchError">
+            function <span class="apidocSignatureSpan">oidc-provider.errors.</span>RedirectUriMismatchError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oidc-provider.index">module oidc-provider.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getAuthorization">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getAuthorization
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getCertificates">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getCertificates
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getCheckSession">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getCheckSession
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getDiscovery">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getDiscovery
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getEndSession">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getEndSession
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getIntrospection">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getIntrospection
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getRegistration">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getRegistration
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getRevocation">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getRevocation
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getToken">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getToken
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getUserinfo">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getUserinfo
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.index.getWebfinger">
+            function <span class="apidocSignatureSpan">oidc-provider.index.</span>getWebfinger
+            <span class="apidocSignatureSpan">(provider)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oidc-provider.provider">module oidc-provider.provider</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider.provider">
+            function <span class="apidocSignatureSpan">oidc-provider.</span>provider
+            <span class="apidocSignatureSpan">(issuer, setup)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider.AdapterTest">
+            function <span class="apidocSignatureSpan">oidc-provider.provider.</span>AdapterTest
+            <span class="apidocSignatureSpan">(provider, accountIdFactory, clientIdFactory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider.asKey">
+            function <span class="apidocSignatureSpan">oidc-provider.provider.</span>asKey
+            <span class="apidocSignatureSpan">(key, form, extras)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider.asKeyStore">
+            function <span class="apidocSignatureSpan">oidc-provider.provider.</span>asKeyStore
+            <span class="apidocSignatureSpan">(ks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oidc-provider.provider.createKeyStore">
+            function <span class="apidocSignatureSpan">oidc-provider.provider.</span>createKeyStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oidc-provider" id="apidoc.module.oidc-provider">module oidc-provider</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.oidc-provider" id="apidoc.element.oidc-provider.oidc-provider">
+        function <span class="apidocSignatureSpan"></span>oidc-provider
+        <span class="apidocSignatureSpan">(issuer, setup)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Provider extends events.EventEmitter {
+
+  constructor(issuer, setup) {
+    assert(issuer, 'first argument must be the Issuer Identifier, i.e. https://op.example.com');
+    assert.equal(typeof issuer, 'string', 'Issuer Identifier must be a string');
+    assert(validUrl.isWebUri(issuer), 'Issuer Identifier must be a valid web uri');
+
+    const components = url.parse(issuer);
+    assert(components.host, 'Issuer Identifier must have a host component');
+    assert(components.protocol, 'Issuer Identifier must have an URI scheme component');
+    assert(!components.search, 'Issuer Identifier must not have a query component');
+    assert(!components.hash, 'Issuer Identifier must not have a fragment component');
+
+    super();
+
+    this.issuer = issuer;
+
+    const conf = getConfiguration(setup);
+
+    instance(this).configuration = function configuration(path) {
+      if (path) return _.get(conf, path);
+      return conf;
+    };
+
+    instance(this).initialized = false;
+    instance(this).defaultHttpOptions = _.clone(DEFAULT_HTTP_OPTIONS);
+    instance(this).responseModes = new Map();
+    instance(this).grantTypeHandlers = new Map();
+    instance(this).grantTypeWhitelist = new Set(['grant_type']);
+    instance(this).mountPath = url.parse(this.issuer).pathname;
+    instance(this).Account = { findById: conf.findById };
+
+    instance(this).BaseToken = models.getBaseToken(this);
+    instance(this).IdToken = models.getIdToken(this);
+    instance(this).Client = models.getClient(this);
+    instance(this).Session = models.getSession(this);
+    instance(this).AccessToken = models.getAccessToken(this);
+    instance(this).AuthorizationCode = models.getAuthorizationCode(this);
+    instance(this).RefreshToken = models.getRefreshToken(this);
+    instance(this).ClientCredentials = models.getClientCredentials(this);
+    instance(this).InitialAccessToken = models.getInitialAccessToken(this);
+    instance(this).RegistrationAccessToken = models.getRegistrationAccessToken(this);
+  }
+
+  initialize(args) {
+    if (this.initialized) throw new Error('already initialized');
+
+    const keysAndClients = (() =&gt; {
+      if (args) return args;
+      return {};
+    })();
+
+    return initializeKeystore.call(this, keysAndClients.keystore)
+      .then(() =&gt; initializeIntegrity.call(this, keysAndClients.integrity))
+      .then(() =&gt; initializeApp.call(this))
+      .then(() =&gt; initializeClients.call(this, keysAndClients.clients))
+      .then(() =&gt; { instance(this).initialized = true; })
+      .then(() =&gt; this);
+  }
+
+  urlFor(name, opt) { return url.resolve(this.issuer, this.pathFor(name, opt)); }
+
+  registerGrantType(name, handlerFactory, params) {
+    instance(this).configuration('grantTypes').add(name);
+
+    const grantTypeHandlers = instance(this).grantTypeHandlers;
+    const grantTypeWhitelist = instance(this).grantTypeWhitelist;
+
+    grantTypeHandlers.set(name, handlerFactory(this));
+
+    switch (typeof params) {
+      case 'undefined':
+        break;
+      case 'string':
+        if (params) grantTypeWhitelist.add(params);
+        break;
+      default:
+        if (params &amp;&amp; params.forEach) {
+          params.forEach(grantTypeWhitelist.add.bind(grantTypeWhitelist));
+        }
+    }
+  }
+
+  cookieName(type) {
+    const name = instance(this).configuration(`cookies.names.${type}`);
+    assert(name, `cookie name for type ${type} is not configured`);
+    return name;
+  }
+
+  registerResponseMode(name, handler) { instance(this).responseModes.set(name, handler); }
+
+  pathFor(name, opts) {
+    checkInit(this);
+    const mountPath = (opts &amp;&amp; opts.mountPath) || instance(this).mountPath;
+    const router = instance(this).router;
+
+    const routerUrl = router.url(name, opts);
+    if (routerUrl instanceof Error) throw routerUrl; // specific to koa-router
+
+    return [mountPath !== '/' ? mountPath : undefined, routerUrl].join('');
+  }
+
+  interactionFinished(req, res, results) {
+    assert(req instanceof http.IncomingMessage,
+      'first argument must be the request (http.IncomingMessage), for express req, for koa ctx.req');
+    assert(res instanceof http.ServerResponse, ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.AdapterTest" id="apidoc.element.oidc-provider.AdapterTest">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>AdapterTest
+        <span class="apidocSignatureSpan">(provider, accountIdFactory, clientIdFactory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class AdapterTest {
+  constructor(provider, accountIdFactory, clientIdFactory) {
+    this.provider = provider;
+    const accountId = accountIdFactory || /* istanbul ignore next */ uuid;
+    const clientId = clientIdFactory || /* istanbul ignore next */ uuid;
+
+    this.data = {
+      accountId: accountId(),
+      acr: instance(provider).configuration('acrValues[0]'),
+      authTime: epochTime(),
+      claims: {
+        id_token: {
+          email: null,
+          family_name: { essential: true },
+          gender: { essential: false },
+          given_name: { value: 'John' },
+          locale: { values: ['en-US', 'en-GB'] },
+          middle_name: {},
+        },
+      },
+      clientId: clientId(),
+      grantId: uuid(),
+      nonce: String(Math.random()),
+      redirectUri: 'http://client.example.com/cb',
+      scope: 'openid profile',
+    };
+  }
+
+  execute() {
+    return this.authorizationCodeInsert()
+      .then(this.authorizationCodeFind.bind(this))
+      .then(this.authorizationCodeConsume.bind(this))
+      .then(this.accessTokenSave.bind(this))
+      .then(this.accessTokenFind.bind(this))
+      .then(this.accessTokenDestroy.bind(this));
+  }
+
+  authorizationCodeInsert() {
+    const ac = new (this.provider.AuthorizationCode)(this.data);
+    return ac.save().then((saved) =&gt; {
+      assert(saved, 'expected code to be saved');
+      return saved;
+    });
+  }
+
+  authorizationCodeFind(code) {
+    this.ac = code;
+    return this.provider.AuthorizationCode.find(code, {
+      ignoreExpiration: true,
+    }).then((found) =&gt; {
+      this.code = found;
+      assert(found, 'expected code to be found');
+      assert(_.isMatch(found, this.data), 'expected stored values to match the original ones');
+      return found;
+    });
+  }
+
+  authorizationCodeConsume(code) {
+    return code.consume().then(() =&gt; this.provider.AuthorizationCode.find(this.ac, {
+      ignoreExpiration: true,
+    })).then((found) =&gt; {
+      assert(found.consumed, 'expected code to be consumed');
+    });
+  }
+
+  accessTokenSave() {
+    const at = new (this.provider.AccessToken)(
+      _.pick(this.code, 'accountId', 'claims', 'clientId', 'grantId', 'scope'));
+    return at.save().then((saved) =&gt; {
+      assert(saved, 'expected access token to be saved');
+      return saved;
+    });
+  }
+
+  accessTokenFind(token) {
+    this.token = token;
+    return this.provider.AccessToken.find(token, {
+      ignoreExpiration: true,
+    }).then((found) =&gt; {
+      assert(found, 'expected token to be found');
+      return found;
+    });
+  }
+
+  accessTokenDestroy(token) {
+    return token.destroy().then(() =&gt; this.provider.AccessToken.find(this.token, {
+      ignoreExpiration: true,
+    })).then((found) =&gt; {
+      assert(!found, 'expected token not to be found');
+    })
+    .then(() =&gt; this.provider.AuthorizationCode.find(this.ac, {
+      ignoreExpiration: true,
+    }))
+    .then((found) =&gt; {
+      assert(!found, 'expected authorization code not to be found');
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.asKey" id="apidoc.element.oidc-provider.asKey">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>asKey
+        <span class="apidocSignatureSpan">(key, form, extras)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">asKey = function (key, form, extras) {
+  if (JWKStore.isKey(key)) {
+    return Promise.resolve(key);
+  }
+
+  var ks = JWKStore.createKeyStore();
+  key = ks.add(key, form, extras);
+
+  return key;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.asKeyStore" id="apidoc.element.oidc-provider.asKeyStore">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>asKeyStore
+        <span class="apidocSignatureSpan">(ks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">asKeyStore = function (ks) {
+  if (JWKStore.isKeyStore(ks)) {
+    return Promise.resolve(ks);
+  }
+
+  var store = JWKStore.createKeyStore(),
+      keys;
+
+  if (typeof ks === "string") {
+    ks = JSON.parse(ks);
+  }
+
+  if (Array.isArray(ks)) {
+    keys = ks;
+  } else if ("keys" in ks) {
+    keys = ks.keys;
+  } else {
+    return Promise.reject(new Error("invalid keystore"));
+  }
+
+  keys = keys.map(function(k) {
+    return store.add(k);
+  });
+
+  var promise = Promise.all(keys);
+  promise = promise.then(function() {
+    return store;
+  });
+
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+const getKeyStore = (() =&gt; {
+  if (jose.JWK.isKeyStore(conf)) {
+    const keystoreWrap = jose.JWK.createKeyStore();
+    return Promise.all(_.map(conf.all(), key =&gt; keystoreWrap.add(key))).then(() =&gt; keystoreWrap);
+  }
+
+  return Promise.resolve().then(() =&gt; jose.JWK.<span class="apidocCodeKeywordSpan">asKeyStore</span>(conf));
+})();
+
+return getKeyStore.then((integrity) =&gt; {
+  const firstSigKey = integrity.get();
+  assert(firstSigKey, 'at least one key must be provided in integrity keystore');
+  assert(firstSigKey.algorithms('sign').length, 'integrity keystore\'s first key must support signing');
+  instance(this).integrity = integrity;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.createKeyStore" id="apidoc.element.oidc-provider.createKeyStore">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>createKeyStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createKeyStore = function () {
+  return new JWKStore(GLOBAL_REGISTRY);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  return integrityConf;
+})();
+
+const getKeyStore = (() =&gt; {
+  if (jose.JWK.isKeyStore(conf)) {
+    const keystoreWrap = jose.JWK.<span class="apidocCodeKeywordSpan">createKeyStore</span>();
+    return Promise.all(_.map(conf.all(), key =&gt; keystoreWrap.add(key))).then(() =&gt; keystoreWrap);
+  }
+
+  return Promise.resolve().then(() =&gt; jose.JWK.asKeyStore(conf));
+})();
+
+return getKeyStore.then((integrity) =&gt; {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider" id="apidoc.element.oidc-provider.provider">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>provider
+        <span class="apidocSignatureSpan">(issuer, setup)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Provider extends events.EventEmitter {
+
+  constructor(issuer, setup) {
+    assert(issuer, 'first argument must be the Issuer Identifier, i.e. https://op.example.com');
+    assert.equal(typeof issuer, 'string', 'Issuer Identifier must be a string');
+    assert(validUrl.isWebUri(issuer), 'Issuer Identifier must be a valid web uri');
+
+    const components = url.parse(issuer);
+    assert(components.host, 'Issuer Identifier must have a host component');
+    assert(components.protocol, 'Issuer Identifier must have an URI scheme component');
+    assert(!components.search, 'Issuer Identifier must not have a query component');
+    assert(!components.hash, 'Issuer Identifier must not have a fragment component');
+
+    super();
+
+    this.issuer = issuer;
+
+    const conf = getConfiguration(setup);
+
+    instance(this).configuration = function configuration(path) {
+      if (path) return _.get(conf, path);
+      return conf;
+    };
+
+    instance(this).initialized = false;
+    instance(this).defaultHttpOptions = _.clone(DEFAULT_HTTP_OPTIONS);
+    instance(this).responseModes = new Map();
+    instance(this).grantTypeHandlers = new Map();
+    instance(this).grantTypeWhitelist = new Set(['grant_type']);
+    instance(this).mountPath = url.parse(this.issuer).pathname;
+    instance(this).Account = { findById: conf.findById };
+
+    instance(this).BaseToken = models.getBaseToken(this);
+    instance(this).IdToken = models.getIdToken(this);
+    instance(this).Client = models.getClient(this);
+    instance(this).Session = models.getSession(this);
+    instance(this).AccessToken = models.getAccessToken(this);
+    instance(this).AuthorizationCode = models.getAuthorizationCode(this);
+    instance(this).RefreshToken = models.getRefreshToken(this);
+    instance(this).ClientCredentials = models.getClientCredentials(this);
+    instance(this).InitialAccessToken = models.getInitialAccessToken(this);
+    instance(this).RegistrationAccessToken = models.getRegistrationAccessToken(this);
+  }
+
+  initialize(args) {
+    if (this.initialized) throw new Error('already initialized');
+
+    const keysAndClients = (() =&gt; {
+      if (args) return args;
+      return {};
+    })();
+
+    return initializeKeystore.call(this, keysAndClients.keystore)
+      .then(() =&gt; initializeIntegrity.call(this, keysAndClients.integrity))
+      .then(() =&gt; initializeApp.call(this))
+      .then(() =&gt; initializeClients.call(this, keysAndClients.clients))
+      .then(() =&gt; { instance(this).initialized = true; })
+      .then(() =&gt; this);
+  }
+
+  urlFor(name, opt) { return url.resolve(this.issuer, this.pathFor(name, opt)); }
+
+  registerGrantType(name, handlerFactory, params) {
+    instance(this).configuration('grantTypes').add(name);
+
+    const grantTypeHandlers = instance(this).grantTypeHandlers;
+    const grantTypeWhitelist = instance(this).grantTypeWhitelist;
+
+    grantTypeHandlers.set(name, handlerFactory(this));
+
+    switch (typeof params) {
+      case 'undefined':
+        break;
+      case 'string':
+        if (params) grantTypeWhitelist.add(params);
+        break;
+      default:
+        if (params &amp;&amp; params.forEach) {
+          params.forEach(grantTypeWhitelist.add.bind(grantTypeWhitelist));
+        }
+    }
+  }
+
+  cookieName(type) {
+    const name = instance(this).configuration(`cookies.names.${type}`);
+    assert(name, `cookie name for type ${type} is not configured`);
+    return name;
+  }
+
+  registerResponseMode(name, handler) { instance(this).responseModes.set(name, handler); }
+
+  pathFor(name, opts) {
+    checkInit(this);
+    const mountPath = (opts &amp;&amp; opts.mountPath) || instance(this).mountPath;
+    const router = instance(this).router;
+
+    const routerUrl = router.url(name, opts);
+    if (routerUrl instanceof Error) throw routerUrl; // specific to koa-router
+
+    return [mountPath !== '/' ? mountPath : undefined, routerUrl].join('');
+  }
+
+  interactionFinished(req, res, results) {
+    assert(req instanceof http.IncomingMessage,
+      'first argument must be the request (http.IncomingMessage), for express req, for koa ctx.req');
+    assert(res instanceof http.ServerResponse, ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oidc-provider.defaults" id="apidoc.module.oidc-provider.defaults">module oidc-provider.defaults</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.adapter" id="apidoc.element.oidc-provider.defaults.adapter">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>adapter
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class MemoryAdapter {
+  constructor(name) {
+    this.name = name;
+  }
+
+  key(id) {
+    return `${this.name}:${id}`;
+  }
+
+  destroy(id) {
+    const key = this.key(id);
+    const grantId = storage.get(key) &amp;&amp; storage.get(key).grantId;
+
+    storage.del(key);
+
+    if (grantId) {
+      const grantKey = grantKeyFor(grantId);
+
+      storage.get(grantKey).forEach(token =&gt; storage.del(token));
+    }
+
+    return Promise.resolve();
+  }
+
+  consume(id) {
+    storage.get(this.key(id)).consumed = epochTime();
+    return Promise.resolve();
+  }
+
+  find(id) {
+    return Promise.resolve(storage.get(this.key(id)));
+  }
+
+  upsert(id, payload, expiresIn) {
+    const key = this.key(id);
+
+    const grantId = payload.grantId;
+    if (grantId) {
+      const grantKey = grantKeyFor(grantId);
+      const grant = storage.get(grantKey);
+      if (!grant) {
+        storage.set(grantKey, [key]);
+      } else {
+        grant.push(key);
+      }
+    }
+
+    storage.set(key, payload, expiresIn * 1000);
+
+    return Promise.resolve();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.findById" id="apidoc.element.oidc-provider.defaults.findById">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>findById
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findById(id) {
+  // this =&gt; koa context;
+  return Promise.resolve({
+    accountId: id,
+    claims() { return { sub: id }; },
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.interactionCheck" id="apidoc.element.oidc-provider.defaults.interactionCheck">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>interactionCheck
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">interactionCheck() {
+  // this =&gt; koa context;
+  if (!this.oidc.session.sidFor(this.oidc.client.clientId)) {
+    return {
+      error: 'consent_required',
+      error_description: 'client not authorized for End-User session yet',
+      reason: 'client_not_authorized',
+    };
+  }
+
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.interactionUrl" id="apidoc.element.oidc-provider.defaults.interactionUrl">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>interactionUrl
+        <span class="apidocSignatureSpan">(interaction)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">interactionUrl(interaction) { // eslint-disable-line no-unused-vars
+  // this =&gt; koa context;
+  try {
+    return url.parse(this.oidc.urlFor('interaction', { grant: this.oidc.uuid })).pathname;
+  } catch (err) {
+    return `/interaction/${this.oidc.uuid}`;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.logoutSource" id="apidoc.element.oidc-provider.defaults.logoutSource">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>logoutSource
+        <span class="apidocSignatureSpan">(form)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logoutSource(form) {
+  // this =&gt; koa context;
+  this.body = `&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+&lt;title&gt;Logout&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${form}
+Do you want to logout from OP too?
+&lt;button type="submit" form="op.logoutForm" name="logout" value="yes"&gt;Yes&lt;/button&gt;
+&lt;button type="submit" form="op.logoutForm"&gt;Please, don't!&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;`;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.renderError" id="apidoc.element.oidc-provider.defaults.renderError">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>renderError
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">renderError(error) {
+  // this =&gt; koa context;
+  this.type = 'html';
+
+  this.body = `&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+&lt;title&gt;oops! something went wrong&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;oops! something went wrong&lt;/h1&gt;
+&lt;pre&gt;${JSON.stringify(error, null, 4)}&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;`;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.defaults.uniqueness" id="apidoc.element.oidc-provider.defaults.uniqueness">
+        function <span class="apidocSignatureSpan">oidc-provider.defaults.</span>uniqueness
+        <span class="apidocSignatureSpan">(jti, expiresAt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uniqueness(jti, expiresAt) {
+  // this =&gt; koa context;
+  if (cache.get(jti)) return Promise.resolve(false);
+
+  cache.set(jti, true, (expiresAt - epochTime()) * 1000);
+
+  return Promise.resolve(true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oidc-provider.errors" id="apidoc.module.oidc-provider.errors">module oidc-provider.errors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.InvalidClientError" id="apidoc.element.oidc-provider.errors.InvalidClientError">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidClientError
+        <span class="apidocSignatureSpan">(detail)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidClientError(detail) {
+  return createError(400, 'invalid_client', {
+    error_description: 'client is invalid',
+    error_detail: detail,
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+module.exports = function endSessionAction(provider) {
+const STATES = new RegExp(`${provider.cookieName('state')}\\.(\\S+)=`, 'g');
+
+const loadClient = function* loadClient(clientId) {
+  // Validate: client_id param
+  const client = yield provider.Client.find(clientId);
+
+  this.assert(client, new errors.<span class="apidocCodeKeywordSpan">InvalidClientError</span>('unrecognized azp or aud claims
+'));
+
+  return client;
+};
+
+return {
+  get: compose([
+    paramsMiddleware(['id_token_hint', 'post_logout_redirect_uri', 'state']),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.InvalidClientMetadata" id="apidoc.element.oidc-provider.errors.InvalidClientMetadata">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidClientMetadata
+        <span class="apidocSignatureSpan">(description)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidClientMetadata(description) {
+  const message = description.startsWith('redirect_uris') ?
+    'invalid_redirect_uri' : 'invalid_client_metadata';
+  return createError(400, message, { error_description: description });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+const url = require('url');
+const validUrl = require('valid-url');
+const errors = require('./errors');
+
+const instance = require('./weak_cache');
+
+function invalidate(message) {
+throw new errors.<span class="apidocCodeKeywordSpan">InvalidClientMetadata</span>(message);
+}
+
+const RECOGNIZED_METADATA = [
+'application_type',
+'backchannel_logout_uri',
+'backchannel_logout_session_required',
+'client_id',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.InvalidGrantError" id="apidoc.element.oidc-provider.errors.InvalidGrantError">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidGrantError
+        <span class="apidocSignatureSpan">(detail)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidGrantError(detail) {
+  return createError(400, 'invalid_grant', {
+    error_description: 'grant request is invalid',
+    error_detail: detail,
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return function* authorizationCodeResponse(next) {
+presence.call(this, ['code', 'redirect_uri']);
+
+const code = yield provider.AuthorizationCode.find(this.oidc.params.code, {
+  ignoreExpiration: true,
+});
+
+this.assert(code, new errors.<span class="apidocCodeKeywordSpan">InvalidGrantError</span>('authorization code not found'
+;));
+this.assert(!code.isExpired, new errors.InvalidGrantError('authorization code is expired'));
+
+// PKCE check
+if (pkce &amp;&amp; (this.oidc.params.code_verifier || code.codeChallenge)) {
+  try {
+    let expected = this.oidc.params.code_verifier;
+    assert(expected);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.InvalidRequestError" id="apidoc.element.oidc-provider.errors.InvalidRequestError">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidRequestError
+        <span class="apidocSignatureSpan">(description, code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidRequestError(description, code) {
+  return createError(code || 400, 'invalid_request', {
+    error_description: description || 'request is invalid', expose: true });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+let client;
+
+const clientId = (() =&gt; {
+  try {
+    const jot = JWT.decode(params.id_token_hint);
+    return jot.payload.azp || jot.payload.aud;
+  } catch (err) {
+    return this.throw(new errors.<span class="apidocCodeKeywordSpan">InvalidRequestError</span>(
+      `could not decode id_token_hint (${err.message})`));
+  }
+})();
+
+try {
+  client = yield loadClient.call(this, clientId);
+  yield provider.IdToken.validate(params.id_token_hint, client);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.InvalidTokenError" id="apidoc.element.oidc-provider.errors.InvalidTokenError">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>InvalidTokenError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidTokenError() {
+  return createError(401, 'invalid_token', { error_description: 'invalid token provided' });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+assert.equal(typeof idFactory, 'function', 'idFactory must be a function');
+
+function* validateInitialAccessToken(next) {
+  const registration = instance(provider).configuration('features.registration');
+  switch (registration.initialAccessToken &amp;&amp; typeof registration.initialAccessToken) {
+    case 'boolean': {
+      const initialAccessToken = yield provider.InitialAccessToken.find(this.oidc.bearer);
+      this.assert(initialAccessToken, new errors.<span class="apidocCodeKeywordSpan">InvalidTokenError</span>());
+      break;
+    }
+    case 'string': {
+      const valid = constantEquals(
+        new Buffer(registration.initialAccessToken, 'utf8'),
+        new Buffer(this.oidc.bearer, 'utf8'),
+        1000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.errors.RedirectUriMismatchError" id="apidoc.element.oidc-provider.errors.RedirectUriMismatchError">
+        function <span class="apidocSignatureSpan">oidc-provider.errors.</span>RedirectUriMismatchError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RedirectUriMismatchError() {
+  return createError(400, 'redirect_uri_mismatch', {
+    error_description: 'redirect_uri did not match any client\'s registered redirect_uris' });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+let params;
+params = this.oidc.params;
+params = params || (this.method === 'POST' ? this.oidc.body : this.query) ||
+  /* istanbul ignore next */ {};
+
+if (this.oidc.client &amp;&amp; params.redirect_uri &amp;&amp; !this.oidc.redirectUriCheckPerformed) {
+  if (!this.oidc.client.redirectUriAllowed(params.redirect_uri)) {
+    err = new errors.<span class="apidocCodeKeywordSpan">RedirectUriMismatchError</span>();
+  }
+}
+
+this.status = err.statusCode || 500;
+
+if (err.expose) {
+  Object.assign(out, { error: err.message, error_description: err.error_description });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oidc-provider.index" id="apidoc.module.oidc-provider.index">module oidc-provider.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getAuthorization" id="apidoc.element.oidc-provider.index.getAuthorization">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getAuthorization
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function authorizationAction(provider) {
+  const whitelist = new Set(PARAM_LIST);
+  const extras = instance(provider).configuration('extraParams');
+  extras.forEach(whitelist.add.bind(whitelist));
+
+  const getParams = paramsMiddleware(whitelist);
+
+  return compose([
+    parseBody,
+    getParams,
+    stack.checkClient(provider),
+    rejectDupes,
+    stack.checkResponseMode,
+    stack.throwNotSupported(provider),
+    stack.oauthRequired,
+    stack.checkOpenidPresent,
+    stack.noRedirectUriClients,
+    stack.fetchRequestUri(provider),
+    stack.decodeRequest(provider),
+    stack.oidcRequired,
+    stack.checkPrompt(provider),
+    stack.checkResponseType(provider),
+    stack.checkScope(provider),
+    stack.checkRedirectUri,
+    stack.checkPixy(provider),
+    stack.assignDefaults,
+    stack.authorizationEmit(provider),
+    stack.checkClaims(provider),
+    stack.loadAccount(provider),
+    stack.interactions(provider),
+    stack.respond(provider),
+    stack.processResponseTypes(provider),
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getCertificates" id="apidoc.element.oidc-provider.index.getCertificates">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getCertificates
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function certificatesAction(provider) {
+  return function* renderCertificates(next) {
+    this.body = instance(provider).keystore.toJSON();
+
+    yield next;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getCheckSession" id="apidoc.element.oidc-provider.index.getCheckSession">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getCheckSession
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function checkSessionAction(provider) {
+  const removeHeaders = !instance(provider).configuration('features.sessionManagement.keepHeaders');
+
+  return function* checkSessionIframe(next) {
+    const debug = this.query.debug !== undefined;
+
+    if (removeHeaders) {
+      this.response.remove('X-Frame-Options');
+      const csp = this.response.get('Content-Security-Policy');
+      if (csp.includes('frame-ancestors')) {
+        this.response.set('Content-Security-Policy', csp.replace(/ ?frame-ancestors [^;]+;/, ''));
+      }
+    }
+
+    this.type = 'html';
+    this.body = `&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head lang="en"&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Session Management - OP iframe&lt;/title&gt;
+    &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.2.0/sha256.js" integrity="sha256-cZOjfJHUnIR4AN0bIASJHvhhJudsombORNNWzHKVoXY
+=" crossorigin="anonymous"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;script type="application/javascript"&gt;
+    var debug = ${debug};
+    var thirdPartyCookies = true;
+
+    function receiveMessage(e) {
+      if (e.data === 'MM:3PCunsupported') {
+        thirdPartyCookies = false;
+        return;
+      } else if (e.data === 'MM:3PCsupported') {
+        return;
+      }
+      try {
+        var message_parts = e.data.split(' ');
+        var clientId = message_parts[0];
+        var actual = message_parts[1];
+        if (debug &amp;&amp; console) console.log('OP recv session state: ' + actual);
+        var salt = actual.split('.')[1];
+
+        var opbs = getOPBrowserState(clientId);
+        var shaObj = new jsSHA('SHA-256', 'TEXT');
+        shaObj.update(clientId + ' ' + e.origin + ' ' + opbs + ' ' + salt);
+        var expected = shaObj.getHash('HEX') + ['.' + salt];
+        if (debug &amp;&amp; console) console.log('OP computed session state: ' + expected);
+
+        var stat;
+        if (actual === expected) {
+          stat = 'unchanged';
+        } else {
+          stat = 'changed';
+        }
+
+        if (debug &amp;&amp; console) console.log('OP status: ' + stat);
+
+        e.source.postMessage(stat, e.origin);
+      } catch (err) {
+        e.source.postMessage('error', e.origin);
+      }
+    }
+
+    function getOPBrowserState(clientId) {
+      var cookie = readCookie('${provider.cookieName('state')}.' + clientId);
+      if (debug &amp;&amp; console) console.log('session state cookie: ' + cookie);
+      if (!thirdPartyCookies &amp;&amp; !cookie) throw new Error('third party cookies are most likely blocked');
+      return cookie;
+    }
+
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i &lt; ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    window.addEventListener('message', receiveMessage, false);
+  &lt;/script&gt;
+  &lt;iframe src="https://cdn.rawgit.com/panva/3rdpartycookiecheck/92fead3f/start.html" style="display:none" /&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;`;
+    yield next;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getDiscovery" id="apidoc.element.oidc-provider.index.getDiscovery">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getDiscovery
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function discoveryAction(provider) {
+  const config = instance(provider).configuration();
+
+  return function* renderConfiguration(next) {
+    this.body = {
+      acr_values_supported: config.acrValues.length ? config.acrValues : undefined,
+      authorization_endpoint: this.oidc.urlFor('authorization'),
+      claims_parameter_supported: !!config.features.claimsParameter,
+      claims_supported: config.claimsSupported,
+      grant_types_supported: Array.from(config.grantTypes),
+      id_token_signing_alg_values_supported: config.idTokenSigningAlgValues,
+      issuer: provider.issuer,
+      jwks_uri: this.oidc.urlFor('certificates'),
+      registration_endpoint: config.features.registration ?
+        this.oidc.urlFor('registration') : undefined,
+      request_object_signing_alg_values_supported:
+        config.features.request || config.features.requestUri ?
+          config.requestObjectSigningAlgValues : undefined,
+      request_parameter_supported: !!config.features.request,
+      request_uri_parameter_supported: !!config.features.requestUri,
+      require_request_uri_registration: config.features.requestUri ?
+        config.features.requestUri.requireRequestUriRegistration : undefined,
+      response_modes_supported: [
+        'form_post',
+        'fragment',
+        'query',
+      ],
+      response_types_supported: config.responseTypes,
+      scopes_supported: config.scopes,
+      subject_types_supported: config.subjectTypes,
+      token_endpoint: this.oidc.urlFor('token'),
+      token_endpoint_auth_methods_supported: config.tokenEndpointAuthMethods,
+      token_endpoint_auth_signing_alg_values_supported: config.tokenEndpointAuthSigningAlgValues,
+      introspection_endpoint: config.features.introspection ?
+        this.oidc.urlFor('introspection') : undefined,
+      revocation_endpoint: config.features.revocation ?
+        this.oidc.urlFor('revocation') : undefined,
+      userinfo_endpoint: this.oidc.urlFor('userinfo'),
+      userinfo_signing_alg_values_supported: config.userinfoSigningAlgValues,
+      code_challenge_methods_supported: config.features.pkce ? ['plain', 'S256'] : undefined,
+    };
+
+    this.body.token_introspection_endpoint = this.body.introspection_endpoint; // 2.0 DEPRECATED
+    this.body.token_revocation_endpoint = this.body.revocation_endpoint; // 2.0 DEPRECATED
+
+    if (config.features.encryption) {
+      this.body.id_token_encryption_alg_values_supported = config.idTokenEncryptionAlgValues;
+      this.body.id_token_encryption_enc_values_supported = config.idTokenEncryptionEncValues;
+      this.body.userinfo_encryption_alg_values_supported = config.userinfoEncryptionAlgValues;
+      this.body.userinfo_encryption_enc_values_supported = config.userinfoEncryptionEncValues;
+
+      if (config.features.request || config.features.requestUri) {
+        this.body.request_object_encryption_alg_values_supported =
+          config.requestObjectEncryptionAlgValues;
+        this.body.request_object_encryption_enc_values_supported =
+          config.requestObjectEncryptionEncValues;
+      }
+    }
+
+    if (config.features.sessionManagement) {
+      this.body.check_session_iframe = this.oidc.urlFor('check_session');
+      this.body.end_session_endpoint = this.oidc.urlFor('end_session');
+
+      if (config.features.backchannelLogout) {
+        this.body.backchannel_logout_supported = true;
+        this.body.backchannel_logout_session_supported = true;
+      }
+    }
+
+    _.defaults(this.body, config.discovery);
+
+    yield next;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getEndSession" id="apidoc.element.oidc-provider.index.getEndSession">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getEndSession
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function endSessionAction(provider) {
+  const STATES = new RegExp(`${provider.cookieName('state')}\\.(\\S+)=`, 'g');
+
+  const loadClient = function* loadClient(clientId) {
+    // Validate: client_id param
+    const client = yield provider.Client.find(clientId);
+
+    this.assert(client, new errors.InvalidClientError('unrecognized azp or aud claims'));
+
+    return client;
+  };
+
+  return {
+    get: compose([
+      paramsMiddleware(['id_token_hint', 'post_logout_redirect_uri', 'state']),
+
+      rejectDupes,
+
+      function* endSessionChecks(next) {
+        const params = this.oidc.params;
+
+        if (params.id_token_hint) {
+          let client;
+
+          const clientId = (() =&gt; {
+            try {
+              const jot = JWT.decode(params.id_token_hint);
+              return jot.payload.azp || jot.payload.aud;
+            } catch (err) {
+              return this.throw(new errors.InvalidRequestError(
+                `could not decode id_token_hint (${err.message})`));
+            }
+          })();
+
+          try {
+            client = yield loadClient.call(this, clientId);
+            yield provider.IdToken.validate(params.id_token_hint, client);
+          } catch (err) {
+            this.throw(new errors.InvalidRequestError(
+              `could not validate id_token_hint (${err.message})`));
+          }
+
+          if (params.post_logout_redirect_uri) {
+            this.assert(client.postLogoutRedirectUriAllowed(params.post_logout_redirect_uri),
+              new errors.InvalidRequestError('post_logout_redirect_uri not registered'));
+          }
+
+          this.oidc.client = client;
+        } else {
+          params.post_logout_redirect_uri = undefined;
+        }
+
+        yield next;
+      },
+
+      function* renderLogout(next) {
+        const secret = crypto.randomBytes(24).toString('hex');
+
+        this.oidc.session.logout = {
+          secret,
+          clientId: this.oidc.client ? this.oidc.client.clientId : undefined,
+          state: this.oidc.params.state,
+          postLogoutRedirectUri: this.oidc.params.post_logout_redirect_uri ||
+            instance(provider).configuration('postLogoutRedirectUri'),
+        };
+
+        this.type = 'html';
+        this.status = 200;
+
+        const formhtml = `&lt;form id="op.logoutForm" method="post" action="${this.oidc.urlFor('end_session')}"&gt;&lt;input type="hidden
+" name="xsrf" value="${secret}"/&gt;&lt;/form&gt;`;
+        instance(provider).configuration('logoutSource').call(this, formhtml);
+
+        yield next;
+      },
+    ]),
+
+    post: compose([
+      parseBody,
+
+      paramsMiddleware(['xsrf', 'logout']),
+
+      rejectDupes,
+
+      function* checkLogoutToken(next) {
+        this.assert(this.oidc.session.logout, new errors.InvalidRequestError(
+          'could not find logout details'));
+        this.assert(this.oidc.session.logout.secret === this.oidc.params.xsrf,
+          new errors.InvalidRequestError('xsrf token invalid'));
+        yield next;
+      },
+
+      function* endSession(next) {
+        const params = this.oidc.session.logout;
+
+        const opts = _.omit(instance(provider).configuration('cookies.long'), 'maxAge', 'expires');
+
+        if (this.oidc.params.logout) {
+          if (instance(provider).configuration('features.backchannelLogout')) {
+            try {
+              const Client = provider.Client;
+              const clientIds = Object.keys(this.oidc.session.authorizations);
+              const logouts = clientIds.map(visitedClientId =&gt; Client.find(visitedClientId)
+                .then((visitedClient) =&gt; {
+                  if (visitedClient &amp;&amp; visitedClient.backchannelLogoutUri) {
+                    return visitedClient.backchannelLogout(this.oidc.session.accountId(),
+                      this.oidc.session.sidFor(visitedClient.clientId));
+                  }
+                  return undefined;
+                }));
+
+              yield logouts;
+            } catch (err) {}
+          }
+
+          yield this.oidc.session.destroy();
+          this.oidc.session.destroyed = true;
+
+          // get all cookies matching _state.[clientId](.sig) and drop them ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getIntrospection" id="apidoc.element.oidc-provider.index.getIntrospection">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getIntrospection
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function introspectionAction(provider) {
+  const Claims = mask(instance(provider).configuration());
+
+  function getAccessToken(token) {
+    return provider.AccessToken.find(token, {
+      ignoreExpiration: true,
+    });
+  }
+
+  function getClientCredentials(token) {
+    return provider.ClientCredentials.find(token, {
+      ignoreExpiration: true,
+    });
+  }
+
+  function getRefreshToken(token) {
+    return provider.RefreshToken.find(token, {
+      ignoreExpiration: true,
+    });
+  }
+
+  function findResult(results) {
+    return results.find(found =&gt; !!found);
+  }
+
+  return compose([
+
+    noCache,
+
+    authAndParams(provider, PARAM_LIST, 'introspection'),
+
+    function* validateTokenPresence(next) {
+      presence.call(this, ['token']);
+      yield next;
+    },
+
+    function* debugOutput(next) {
+      yield next;
+      debug('uuid=%s by client=%s token=%s response=%o',
+        this.oidc.uuid,
+        this.oidc.client.clientId,
+        this.oidc.params.token, this.body);
+    },
+
+    function* renderTokenResponse(next) {
+      let token;
+      const params = this.oidc.params;
+
+      this.body = { active: false };
+
+      let tryhard;
+
+      switch (params.token_type_hint) {
+        case 'access_token':
+          tryhard = getAccessToken(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getClientCredentials(params.token),
+                getRefreshToken(params.token),
+              ]).then(findResult);
+            });
+          break;
+        case 'client_credentials':
+          tryhard = getClientCredentials(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getAccessToken(params.token),
+                getRefreshToken(params.token),
+              ]).then(findResult);
+            });
+          break;
+        case 'refresh_token':
+          tryhard = getRefreshToken(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getAccessToken(params.token),
+                getClientCredentials(params.token),
+              ]).then(findResult);
+            });
+          break;
+        default:
+          tryhard = Promise.all([
+            getAccessToken(params.token),
+            getClientCredentials(params.token),
+            getRefreshToken(params.token),
+          ]).then(findResult);
+      }
+
+      try {
+        token = yield tryhard;
+
+        switch (token &amp;&amp; token.kind) {
+          case 'AccessToken':
+            this.body.token_type = 'access_token';
+            break;
+          case 'ClientCredentials':
+            this.body.token_type = 'client_credentials';
+            break;
+          case 'RefreshToken':
+            this.body.token_type = 'refresh_token';
+            break;
+          default:
+            return;
+        }
+      } catch (err) {}
+
+      if (!this.body.token_type) {
+        return;
+      }
+
+      if (token.clientId !== this.oidc.client.clientId) {
+        this.body.sub = Claims.sub(token.accountId,
+          (yield provider.Client.find(token.clientId)).sectorIdentifier);
+      } else {
+        this.body.sub = Claims.sub(token.accountId, this.oidc.client.sectorIdentifier);
+      }
+
+      Object.assign(this.body, {
+        active: token.isValid,
+        client_id: token.clientId,
+        exp: token.exp,
+        iat: token.iat,
+        sid: token.sid,
+        iss: token.iss,
+        jti: token.jti,
+        scope: token.scope,
+      });
+
+      yield next;
+    },
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getRegistration" id="apidoc.element.oidc-provider.index.getRegistration">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getRegistration
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registrationAction(provider) {
+  const idFactory = instance(provider).configuration('features.registration.idFactory') || uuid;
+  assert.equal(typeof idFactory, 'function', 'idFactory must be a function');
+
+  function* validateInitialAccessToken(next) {
+    const registration = instance(provider).configuration('features.registration');
+    switch (registration.initialAccessToken &amp;&amp; typeof registration.initialAccessToken) {
+      case 'boolean': {
+        const initialAccessToken = yield provider.InitialAccessToken.find(this.oidc.bearer);
+        this.assert(initialAccessToken, new errors.InvalidTokenError());
+        break;
+      }
+      case 'string': {
+        const valid = constantEquals(
+          new Buffer(registration.initialAccessToken, 'utf8'),
+          new Buffer(this.oidc.bearer, 'utf8'),
+          1000);
+        this.assert(valid, new errors.InvalidTokenError());
+        break;
+      }
+      default:
+    }
+
+    yield next;
+  }
+
+  function* validateRegistrationAccessToken(next) {
+    const regAccessToken = yield provider.RegistrationAccessToken.find(this.oidc.bearer);
+    this.assert(regAccessToken, new errors.InvalidTokenError());
+
+    const client = yield provider.Client.find(this.params.clientId, {
+      fresh: true,
+    });
+
+    if (!client || client.clientId !== regAccessToken.clientId) {
+      yield regAccessToken.destroy();
+      this.throw(new errors.InvalidTokenError());
+    }
+
+    this.oidc.client = client;
+    this.oidc.registrationAccessToken = regAccessToken;
+
+    yield next;
+  }
+
+  return {
+    post: compose([
+      noCache,
+      parseBody,
+      validateInitialAccessToken,
+      function* registrationResponse() {
+        const properties = {};
+        const clientId = String(idFactory());
+
+        const rat = new provider.RegistrationAccessToken({ clientId });
+
+        Object.assign(properties, this.oidc.body, {
+          client_id: clientId,
+          client_id_issued_at: epochTime(),
+        });
+
+        const Client = provider.Client;
+        const secretRequired = Client.needsSecret(properties);
+
+        if (secretRequired) {
+          Object.assign(properties, {
+            client_secret: crypto.randomBytes(48).toString('base64'), client_secret_expires_at: 0,
+          });
+        }
+
+        const client = yield instance(provider).clientAdd(properties, true);
+
+        this.body = client.metadata();
+
+        Object.assign(this.body, {
+          registration_client_uri: this.oidc.urlFor('registration_client', {
+            clientId: properties.client_id,
+          }),
+          registration_access_token: yield rat.save(),
+        });
+
+        this.status = 201;
+
+        provider.emit('registration_create.success', client, this);
+      },
+    ]),
+
+    get: compose([
+      noCache,
+      validateRegistrationAccessToken,
+
+      function* clientReadResponse(next) {
+        this.body = this.oidc.client.metadata();
+
+        Object.assign(this.body, {
+          registration_access_token: this.oidc.bearer,
+          registration_client_uri: this.oidc.urlFor('registration_client', {
+            clientId: this.params.clientId,
+          }),
+        });
+
+        yield next;
+      },
+    ]),
+
+    put: compose([
+      noCache,
+      validateRegistrationAccessToken,
+      parseBody,
+
+      function* forbiddenFields(next) {
+        const hit = FORBIDDEN.find(field =&gt; this.oidc.body[field] !== undefined);
+
+        this.assert(!hit, new errors.InvalidRequestError(
+          `request MUST NOT include the "${hit}" field`));
+
+        yield next;
+      },
+
+      function* metaChecks(next) {
+        const hit = _.findKey(this.oidc.client.metadata(), findMissingKey.bind(this));
+
+        this.assert(!hit, new errors.InvalidRequestError(`${hit} must be provided`));
+        yield next;
+      },
+
+      function* equalChecks(next) {
+        this.assert(this.oidc.body.client_id === this.oidc.client.clientId,
+          new errors.InvalidRequestError(
+            'provided client_id does not match the authenticated client\'s one'));
+
+        if (this.oidc.body.client_secret) {
+          const clientSecretValid = ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getRevocation" id="apidoc.element.oidc-provider.index.getRevocation">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getRevocation
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function revocationAction(provider) {
+  function getAccessToken(token) {
+    return provider.AccessToken.find(token);
+  }
+
+  function getClientCredentials(token) {
+    return provider.ClientCredentials.find(token);
+  }
+
+  function getRefreshToken(token) {
+    return provider.RefreshToken.find(token);
+  }
+
+  function findResult(results) {
+    return results.find(found =&gt; !!found);
+  }
+
+  return compose([
+
+    authAndParams(provider, PARAM_LIST, 'revocation'),
+
+    function* validateTokenPresence(next) {
+      presence.call(this, ['token']);
+      yield next;
+    },
+
+    function* renderTokenResponse(next) {
+      this.body = {};
+      debug('uuid=%s client=%s token=%s',
+        this.oidc.uuid,
+        this.oidc.client.clientId,
+        this.oidc.params.token);
+      yield next;
+    },
+
+    function* revokeToken() {
+      let tryhard;
+      const params = this.oidc.params;
+
+      switch (params.token_type_hint) {
+        case 'access_token':
+          tryhard = getAccessToken(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getClientCredentials(params.token),
+                getRefreshToken(params.token),
+              ]).then(findResult);
+            });
+          break;
+        case 'client_credentials':
+          tryhard = getClientCredentials(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getAccessToken(params.token),
+                getRefreshToken(params.token),
+              ]).then(findResult);
+            });
+          break;
+        case 'refresh_token':
+          tryhard = getRefreshToken(params.token)
+            .then((result) =&gt; {
+              if (result) return result;
+              return Promise.all([
+                getAccessToken(params.token),
+                getClientCredentials(params.token),
+              ]).then(findResult);
+            });
+          break;
+        default:
+          tryhard = Promise.all([
+            getAccessToken(params.token),
+            getClientCredentials(params.token),
+            getRefreshToken(params.token),
+          ]).then(findResult);
+      }
+
+      let token;
+      try {
+        token = yield tryhard;
+      } catch (err) {
+        if (err.message === 'invalid_token') {
+          return;
+        }
+        throw err;
+      }
+
+      switch (token &amp;&amp; token.kind) {
+        case 'AccessToken':
+        case 'ClientCredentials':
+        case 'RefreshToken':
+
+          this.assert(token.clientId === this.oidc.client.clientId,
+            new errors.InvalidRequestError('this token does not belong to you'));
+
+          yield token.destroy();
+
+          break;
+        default:
+          this.throw(400, 'unsupported_token_type', {
+            error_description: 'revocation of the presented token type is not supported',
+          });
+      }
+    },
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getToken" id="apidoc.element.oidc-provider.index.getToken">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getToken
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tokenAction(provider) {
+  return compose([
+    noCache,
+
+    authAndParams(provider, instance(provider).grantTypeWhitelist, 'token'),
+
+    function* supportedGrantTypeCheck(next) {
+      presence.call(this, ['grant_type']);
+
+      const supported = instance(provider).configuration('grantTypes');
+
+      this.assert(supported.has(this.oidc.params.grant_type), 400, 'unsupported_grant_type', {
+        error_description: `unsupported grant_type requested (${this.oidc.params.grant_type})`,
+      });
+
+      yield next;
+    },
+
+    function* allowedGrantTypeCheck(next) {
+      const oidc = this.oidc;
+
+      this.assert(oidc.client.grantTypeAllowed(oidc.params.grant_type), 400,
+        'restricted_grant_type', {
+          error_description: 'requested grant type is restricted to this client',
+        });
+
+      yield next;
+    },
+
+    function* callTokenHandler(next) {
+      debug('accepted uuid=%s %o', this.oidc.uuid, this.oidc.params);
+      const grantType = this.oidc.params.grant_type;
+
+      const grantTypeHandlers = instance(provider).grantTypeHandlers;
+<span class="apidocCodeCommentSpan">      /* istanbul ignore else */
+</span>      if (grantTypeHandlers.has(grantType)) {
+        yield grantTypeHandlers.get(grantType).call(this, next);
+        provider.emit('grant.success', this);
+        debug('uuid=%s response %o', this.oidc.uuid, this.body);
+      } else {
+        this.throw(500, 'server_error', {
+          error_description: 'not implemented grant type',
+        });
+      }
+    },
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getUserinfo" id="apidoc.element.oidc-provider.index.getUserinfo">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getUserinfo
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function userinfoAction(provider) {
+  const Claims = getMask(instance(provider).configuration());
+
+  return compose([
+
+    errorHandler(provider, 'userinfo.error'),
+
+    function* seWWWAuthenticateHeader(next) {
+      try {
+        yield next;
+      } catch (err) {
+        if (err.statusCode === 401) {
+          const wwwAuth = _.chain({
+            realm: provider.issuer,
+          })
+          .merge({
+            error: err.message,
+            error_description: err.error_description,
+            scope: err.scope,
+          })
+          .omitBy(_.isUndefined)
+          .map((val, key) =&gt; `${key}="${val}"`)
+          .value()
+          .join(', ');
+
+          this.set('WWW-Authenticate', `Bearer ${wwwAuth}`);
+        }
+        throw err;
+      }
+    },
+
+    parseBody,
+
+    getParams,
+
+    rejectDupes,
+
+    function* validateBearer(next) {
+      const accessToken = yield provider.AccessToken.find(this.oidc.bearer);
+      this.assert(accessToken, new errors.InvalidTokenError());
+
+      this.oidc.accessToken = accessToken;
+      yield next;
+    },
+
+    function* validateScope(next) {
+      if (this.oidc.params.scope) {
+        const accessTokenScopes = this.oidc.accessToken.scope.split(' ');
+        const missing = _.difference(this.oidc.params.scope.split(' '),
+          accessTokenScopes);
+
+        this.assert(_.isEmpty(missing), 400, 'invalid_scope', {
+          error_description: 'access token missing requested scope',
+          scope: missing.join(' '),
+        });
+      }
+      yield next;
+    },
+
+    function* loadClient(next) {
+      const client = yield provider.Client.find(this.oidc.accessToken.clientId);
+      this.assert(client, new errors.InvalidTokenError());
+
+      this.oidc.client = client;
+
+      yield next;
+    },
+
+    function* loadAccount(next) {
+      const account = yield provider.Account.findById.call(this, this.oidc.accessToken.accountId);
+
+      this.assert(account, new errors.InvalidTokenError());
+
+      this.oidc.account = account;
+
+      yield next;
+    },
+
+    function* respond() {
+      const claims = _.get(this.oidc.accessToken, 'claims.userinfo', {});
+      const scope = this.oidc.params.scope || this.oidc.accessToken.scope;
+      const client = this.oidc.client;
+
+      if (client.userinfoSignedResponseAlg || client.userinfoEncryptedResponseAlg) {
+        const IdToken = provider.IdToken;
+        const token = new IdToken(yield Promise.resolve(this.oidc.account.claims()),
+          client.sectorIdentifier);
+
+        token.scope = scope;
+        token.mask = claims;
+
+        this.body = yield token.sign(client, {
+          expiresAt: this.oidc.accessToken.exp,
+          use: 'userinfo',
+        });
+        this.type = 'application/jwt; charset=utf-8';
+      } else {
+        const mask = new Claims(yield Promise.resolve(this.oidc.account.claims()),
+          client.sectorIdentifier);
+
+        mask.scope(scope);
+        mask.mask(claims);
+
+        this.body = mask.result();
+      }
+
+      debug('uuid=%s content-type=%s response=%o', this.oidc.uuid, this.type, this.body);
+    },
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.index.getWebfinger" id="apidoc.element.oidc-provider.index.getWebfinger">
+        function <span class="apidocSignatureSpan">oidc-provider.index.</span>getWebfinger
+        <span class="apidocSignatureSpan">(provider)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function webfingerAction(provider) {
+  return function* renderWebfingerResponse(next) {
+    this.body = {
+      links: [{
+        href: provider.issuer,
+        rel: 'http://openid.net/specs/connect/1.0/issuer',
+      }],
+      subject: this.query.resource,
+    };
+    this.type = 'application/jrd+json';
+    yield next;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oidc-provider.provider" id="apidoc.module.oidc-provider.provider">module oidc-provider.provider</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider.provider" id="apidoc.element.oidc-provider.provider.provider">
+        function <span class="apidocSignatureSpan">oidc-provider.</span>provider
+        <span class="apidocSignatureSpan">(issuer, setup)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Provider extends events.EventEmitter {
+
+  constructor(issuer, setup) {
+    assert(issuer, 'first argument must be the Issuer Identifier, i.e. https://op.example.com');
+    assert.equal(typeof issuer, 'string', 'Issuer Identifier must be a string');
+    assert(validUrl.isWebUri(issuer), 'Issuer Identifier must be a valid web uri');
+
+    const components = url.parse(issuer);
+    assert(components.host, 'Issuer Identifier must have a host component');
+    assert(components.protocol, 'Issuer Identifier must have an URI scheme component');
+    assert(!components.search, 'Issuer Identifier must not have a query component');
+    assert(!components.hash, 'Issuer Identifier must not have a fragment component');
+
+    super();
+
+    this.issuer = issuer;
+
+    const conf = getConfiguration(setup);
+
+    instance(this).configuration = function configuration(path) {
+      if (path) return _.get(conf, path);
+      return conf;
+    };
+
+    instance(this).initialized = false;
+    instance(this).defaultHttpOptions = _.clone(DEFAULT_HTTP_OPTIONS);
+    instance(this).responseModes = new Map();
+    instance(this).grantTypeHandlers = new Map();
+    instance(this).grantTypeWhitelist = new Set(['grant_type']);
+    instance(this).mountPath = url.parse(this.issuer).pathname;
+    instance(this).Account = { findById: conf.findById };
+
+    instance(this).BaseToken = models.getBaseToken(this);
+    instance(this).IdToken = models.getIdToken(this);
+    instance(this).Client = models.getClient(this);
+    instance(this).Session = models.getSession(this);
+    instance(this).AccessToken = models.getAccessToken(this);
+    instance(this).AuthorizationCode = models.getAuthorizationCode(this);
+    instance(this).RefreshToken = models.getRefreshToken(this);
+    instance(this).ClientCredentials = models.getClientCredentials(this);
+    instance(this).InitialAccessToken = models.getInitialAccessToken(this);
+    instance(this).RegistrationAccessToken = models.getRegistrationAccessToken(this);
+  }
+
+  initialize(args) {
+    if (this.initialized) throw new Error('already initialized');
+
+    const keysAndClients = (() =&gt; {
+      if (args) return args;
+      return {};
+    })();
+
+    return initializeKeystore.call(this, keysAndClients.keystore)
+      .then(() =&gt; initializeIntegrity.call(this, keysAndClients.integrity))
+      .then(() =&gt; initializeApp.call(this))
+      .then(() =&gt; initializeClients.call(this, keysAndClients.clients))
+      .then(() =&gt; { instance(this).initialized = true; })
+      .then(() =&gt; this);
+  }
+
+  urlFor(name, opt) { return url.resolve(this.issuer, this.pathFor(name, opt)); }
+
+  registerGrantType(name, handlerFactory, params) {
+    instance(this).configuration('grantTypes').add(name);
+
+    const grantTypeHandlers = instance(this).grantTypeHandlers;
+    const grantTypeWhitelist = instance(this).grantTypeWhitelist;
+
+    grantTypeHandlers.set(name, handlerFactory(this));
+
+    switch (typeof params) {
+      case 'undefined':
+        break;
+      case 'string':
+        if (params) grantTypeWhitelist.add(params);
+        break;
+      default:
+        if (params &amp;&amp; params.forEach) {
+          params.forEach(grantTypeWhitelist.add.bind(grantTypeWhitelist));
+        }
+    }
+  }
+
+  cookieName(type) {
+    const name = instance(this).configuration(`cookies.names.${type}`);
+    assert(name, `cookie name for type ${type} is not configured`);
+    return name;
+  }
+
+  registerResponseMode(name, handler) { instance(this).responseModes.set(name, handler); }
+
+  pathFor(name, opts) {
+    checkInit(this);
+    const mountPath = (opts &amp;&amp; opts.mountPath) || instance(this).mountPath;
+    const router = instance(this).router;
+
+    const routerUrl = router.url(name, opts);
+    if (routerUrl instanceof Error) throw routerUrl; // specific to koa-router
+
+    return [mountPath !== '/' ? mountPath : undefined, routerUrl].join('');
+  }
+
+  interactionFinished(req, res, results) {
+    assert(req instanceof http.IncomingMessage,
+      'first argument must be the request (http.IncomingMessage), for express req, for koa ctx.req');
+    assert(res instanceof http.ServerResponse, ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider.AdapterTest" id="apidoc.element.oidc-provider.provider.AdapterTest">
+        function <span class="apidocSignatureSpan">oidc-provider.provider.</span>AdapterTest
+        <span class="apidocSignatureSpan">(provider, accountIdFactory, clientIdFactory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class AdapterTest {
+  constructor(provider, accountIdFactory, clientIdFactory) {
+    this.provider = provider;
+    const accountId = accountIdFactory || /* istanbul ignore next */ uuid;
+    const clientId = clientIdFactory || /* istanbul ignore next */ uuid;
+
+    this.data = {
+      accountId: accountId(),
+      acr: instance(provider).configuration('acrValues[0]'),
+      authTime: epochTime(),
+      claims: {
+        id_token: {
+          email: null,
+          family_name: { essential: true },
+          gender: { essential: false },
+          given_name: { value: 'John' },
+          locale: { values: ['en-US', 'en-GB'] },
+          middle_name: {},
+        },
+      },
+      clientId: clientId(),
+      grantId: uuid(),
+      nonce: String(Math.random()),
+      redirectUri: 'http://client.example.com/cb',
+      scope: 'openid profile',
+    };
+  }
+
+  execute() {
+    return this.authorizationCodeInsert()
+      .then(this.authorizationCodeFind.bind(this))
+      .then(this.authorizationCodeConsume.bind(this))
+      .then(this.accessTokenSave.bind(this))
+      .then(this.accessTokenFind.bind(this))
+      .then(this.accessTokenDestroy.bind(this));
+  }
+
+  authorizationCodeInsert() {
+    const ac = new (this.provider.AuthorizationCode)(this.data);
+    return ac.save().then((saved) =&gt; {
+      assert(saved, 'expected code to be saved');
+      return saved;
+    });
+  }
+
+  authorizationCodeFind(code) {
+    this.ac = code;
+    return this.provider.AuthorizationCode.find(code, {
+      ignoreExpiration: true,
+    }).then((found) =&gt; {
+      this.code = found;
+      assert(found, 'expected code to be found');
+      assert(_.isMatch(found, this.data), 'expected stored values to match the original ones');
+      return found;
+    });
+  }
+
+  authorizationCodeConsume(code) {
+    return code.consume().then(() =&gt; this.provider.AuthorizationCode.find(this.ac, {
+      ignoreExpiration: true,
+    })).then((found) =&gt; {
+      assert(found.consumed, 'expected code to be consumed');
+    });
+  }
+
+  accessTokenSave() {
+    const at = new (this.provider.AccessToken)(
+      _.pick(this.code, 'accountId', 'claims', 'clientId', 'grantId', 'scope'));
+    return at.save().then((saved) =&gt; {
+      assert(saved, 'expected access token to be saved');
+      return saved;
+    });
+  }
+
+  accessTokenFind(token) {
+    this.token = token;
+    return this.provider.AccessToken.find(token, {
+      ignoreExpiration: true,
+    }).then((found) =&gt; {
+      assert(found, 'expected token to be found');
+      return found;
+    });
+  }
+
+  accessTokenDestroy(token) {
+    return token.destroy().then(() =&gt; this.provider.AccessToken.find(this.token, {
+      ignoreExpiration: true,
+    })).then((found) =&gt; {
+      assert(!found, 'expected token not to be found');
+    })
+    .then(() =&gt; this.provider.AuthorizationCode.find(this.ac, {
+      ignoreExpiration: true,
+    }))
+    .then((found) =&gt; {
+      assert(!found, 'expected authorization code not to be found');
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider.asKey" id="apidoc.element.oidc-provider.provider.asKey">
+        function <span class="apidocSignatureSpan">oidc-provider.provider.</span>asKey
+        <span class="apidocSignatureSpan">(key, form, extras)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">asKey = function (key, form, extras) {
+  if (JWKStore.isKey(key)) {
+    return Promise.resolve(key);
+  }
+
+  var ks = JWKStore.createKeyStore();
+  key = ks.add(key, form, extras);
+
+  return key;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider.asKeyStore" id="apidoc.element.oidc-provider.provider.asKeyStore">
+        function <span class="apidocSignatureSpan">oidc-provider.provider.</span>asKeyStore
+        <span class="apidocSignatureSpan">(ks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">asKeyStore = function (ks) {
+  if (JWKStore.isKeyStore(ks)) {
+    return Promise.resolve(ks);
+  }
+
+  var store = JWKStore.createKeyStore(),
+      keys;
+
+  if (typeof ks === "string") {
+    ks = JSON.parse(ks);
+  }
+
+  if (Array.isArray(ks)) {
+    keys = ks;
+  } else if ("keys" in ks) {
+    keys = ks.keys;
+  } else {
+    return Promise.reject(new Error("invalid keystore"));
+  }
+
+  keys = keys.map(function(k) {
+    return store.add(k);
+  });
+
+  var promise = Promise.all(keys);
+  promise = promise.then(function() {
+    return store;
+  });
+
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+const getKeyStore = (() =&gt; {
+  if (jose.JWK.isKeyStore(conf)) {
+    const keystoreWrap = jose.JWK.createKeyStore();
+    return Promise.all(_.map(conf.all(), key =&gt; keystoreWrap.add(key))).then(() =&gt; keystoreWrap);
+  }
+
+  return Promise.resolve().then(() =&gt; jose.JWK.<span class="apidocCodeKeywordSpan">asKeyStore</span>(conf));
+})();
+
+return getKeyStore.then((integrity) =&gt; {
+  const firstSigKey = integrity.get();
+  assert(firstSigKey, 'at least one key must be provided in integrity keystore');
+  assert(firstSigKey.algorithms('sign').length, 'integrity keystore\'s first key must support signing');
+  instance(this).integrity = integrity;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oidc-provider.provider.createKeyStore" id="apidoc.element.oidc-provider.provider.createKeyStore">
+        function <span class="apidocSignatureSpan">oidc-provider.provider.</span>createKeyStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createKeyStore = function () {
+  return new JWKStore(GLOBAL_REGISTRY);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  return integrityConf;
+})();
+
+const getKeyStore = (() =&gt; {
+  if (jose.JWK.isKeyStore(conf)) {
+    const keystoreWrap = jose.JWK.<span class="apidocCodeKeywordSpan">createKeyStore</span>();
+    return Promise.all(_.map(conf.all(), key =&gt; keystoreWrap.add(key))).then(() =&gt; keystoreWrap);
+  }
+
+  return Promise.resolve().then(() =&gt; jose.JWK.asKeyStore(conf));
+})();
+
+return getKeyStore.then((integrity) =&gt; {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
