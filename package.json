@@ -1,1 +1,38 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmdoc-oidc-provider",     "homepage": "https://github.com/npmdoc/node-npmdoc-oidc-provider",     "repository": {         "type": "git",         "url": "https://github.com/npmdoc/node-npmdoc-oidc-provider.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic api documentation for  [oidc-provider (v1.15.6)](https://github.com/panva/node-oidc-provider)  [![npm package](https://img.shields.io/npm/v/npmdoc-oidc-provider.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-oidc-provider) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-oidc-provider.svg)](https://travis-ci.org/npmdoc/node-npmdoc-oidc-provider)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-oidc-provider",
+    "keywords": [
+        "documentation",
+        "oidc-provider"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_oidc_provider.js",
+    "name": "npmdoc-oidc-provider",
+    "nameAlias": "npmdoc_oidc_provider",
+    "nameOriginal": "npmdoc-oidc-provider",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmdoc/node-npmdoc-oidc-provider.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "2017.4.26"
+}
